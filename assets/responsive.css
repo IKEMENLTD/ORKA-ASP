@@ -2,6 +2,39 @@
    レスポンシブデザイン完全版
    ======================================== */
 
+/* ========================================
+   iOS Safari & 安全領域対応
+   ======================================== */
+:root {
+    /* iOS Safari 100vh問題対策 */
+    --vh: 1vh;
+    /* safe-area-inset対応 */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+}
+
+/* タップハイライト無効化 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================
+   基本タッチターゲット保証
+   ======================================== */
+.btn,
+.nav-link,
+.nav-toggle,
+.faq-question,
+.filter-btn,
+.toggle-btn,
+button,
+a[href] {
+    min-height: 44px;
+    min-width: 44px;
+}
+
 /* 大画面PC（1440px以上） */
 @media (min-width: 1440px) {
     .container {
@@ -168,14 +201,18 @@
         position: fixed;
         top: 80px;
         right: -100%;
-        width: 300px;
+        width: min(300px, 85vw);
         height: calc(100vh - 80px);
-        background: white;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        height: calc(var(--vh, 1vh) * 100 - 80px);
+        background: var(--c-surface, #111111);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
         transition: right 0.3s ease;
         z-index: 999;
         flex-direction: column;
-        padding: var(--space-2xl) var(--space-xl);
+        padding: var(--space-2xl, 2rem) var(--space-xl, 1.5rem);
+        padding-bottom: calc(var(--space-2xl, 2rem) + var(--safe-area-inset-bottom));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .nav-menu.active {
@@ -413,11 +450,93 @@
         min-height: auto;
         padding: 40px 0;
     }
-    
+
     .nav-menu {
         max-height: calc(100vh - 60px);
+        max-height: calc(var(--vh, 1vh) * 100 - 60px);
         overflow-y: auto;
     }
+
+    /* 横向き時のセクションパディング削減 */
+    section {
+        padding: 30px 0;
+    }
+
+    .hero-stats {
+        padding: 20px 0;
+    }
+
+    .stats-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .stat-item {
+        width: auto;
+        min-width: 120px;
+    }
+
+    /* フッターの縦幅削減 */
+    .footer {
+        padding: 2rem 0;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+}
+
+/* ========================================
+   モーダル・ポップアップ対応
+   ======================================== */
+.modal,
+.popup {
+    max-height: calc(100vh - 32px);
+    max-height: calc(var(--vh, 1vh) * 100 - 32px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   画像 aspect-ratio 対応
+   ======================================== */
+.about-image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    height: auto;
+}
+
+.blog-image img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+
+.news-card-visual {
+    aspect-ratio: 16 / 9;
+}
+
+/* ========================================
+   Ticker アクセシビリティ対応
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .ticker {
+        animation: none !important;
+    }
+
+    .ticker-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Tickerホバー時に一時停止 */
+.ticker-wrap:hover .ticker,
+.ticker-wrap:focus-within .ticker {
+    animation-play-state: paused;
 }
 
 /* ダークモード対応 */
