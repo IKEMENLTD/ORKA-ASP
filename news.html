@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS | ORKA ASP - Closed Affiliate Network</title>
+    <meta name="description" content="ORKA ASPの最新ニュース。新機能、アップデート、キャンペーン情報をお届けします。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- OGP -->
+    <meta property="og:title" content="NEWS | ORKA ASP">
+    <meta property="og:description" content="ORKA ASPの最新ニュース。新機能、アップデート、キャンペーン情報をお届けします。">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down">UPDATES</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                NEWS &<br>
+                <span class="text-accent">ANNOUNCEMENTS</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                ORKA ASPの最新情報をお届けします
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter -->
+    <section class="section">
+        <div class="container">
+            <div class="news-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="update">UPDATE</button>
+                <button class="filter-btn" data-filter="feature">FEATURE</button>
+                <button class="filter-btn" data-filter="campaign">CAMPAIGN</button>
+                <button class="filter-btn" data-filter="notice">NOTICE</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News List -->
+    <section class="section">
+        <div class="container">
+            <div class="news-list">
+                <!-- Featured News -->
+                <article class="news-card featured" data-category="feature" data-aos="fade-up">
+                    <div class="news-card-content">
+                        <div class="news-meta">
+                            <span class="news-tag tag-feature">NEW FEATURE</span>
+                            <time datetime="2025-01-15">2025.01.15</time>
+                        </div>
+                        <h2 class="news-title">API v2.0 リリース - Webhook対応</h2>
+                        <p class="news-excerpt">
+                            REST API v2.0をリリースしました。Webhook通知機能により、成果発生をリアルタイムで受信可能に。
+                            また、バッチ処理APIの追加により、大量データの処理効率が大幅に向上しています。
+                        </p>
+                        <a href="#" class="news-link">
+                            <span>READ MORE</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="news-card-visual">
+                        <div class="news-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular News Grid -->
+                <div class="news-grid">
+                    <article class="news-item" data-category="update" data-aos="fade-up" data-aos-delay="50">
+                        <div class="news-meta">
+                            <span class="news-tag tag-update">UPDATE</span>
+                            <time datetime="2025-01-12">2025.01.12</time>
+                        </div>
+                        <h3 class="news-item-title">管理画面UIを刷新</h3>
+                        <p class="news-item-excerpt">
+                            ダッシュボードのデザインを一新。データ視覚化とレスポンシブ対応を強化しました。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="news-item" data-category="campaign" data-aos="fade-up" data-aos-delay="100">
+                        <div class="news-meta">
+                            <span class="news-tag tag-campaign">CAMPAIGN</span>
+                            <time datetime="2025-01-10">2025.01.10</time>
+                        </div>
+                        <h3 class="news-item-title">新春キャンペーン実施中</h3>
+                        <p class="news-item-excerpt">
+                            1月末まで新規広告主様向け初期費用50%OFFキャンペーン実施中。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="news-item" data-category="notice" data-aos="fade-up" data-aos-delay="150">
+                        <div class="news-meta">
+                            <span class="news-tag tag-notice">NOTICE</span>
+                            <time datetime="2025-01-08">2025.01.08</time>
+                        </div>
+                        <h3 class="news-item-title">1月のメンテナンス予定</h3>
+                        <p class="news-item-excerpt">
+                            1月20日 02:00-06:00 定期メンテナンスを実施します。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="news-item" data-category="feature" data-aos="fade-up" data-aos-delay="200">
+                        <div class="news-meta">
+                            <span class="news-tag tag-feature">NEW FEATURE</span>
+                            <time datetime="2025-01-05">2025.01.05</time>
+                        </div>
+                        <h3 class="news-item-title">成果レポート機能を強化</h3>
+                        <p class="news-item-excerpt">
+                            日別・週別・月別の詳細レポート、CSV/PDFエクスポートに対応。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="news-item" data-category="update" data-aos="fade-up" data-aos-delay="250">
+                        <div class="news-meta">
+                            <span class="news-tag tag-update">UPDATE</span>
+                            <time datetime="2024-12-28">2024.12.28</time>
+                        </div>
+                        <h3 class="news-item-title">年末年始の営業について</h3>
+                        <p class="news-item-excerpt">
+                            12/29-1/3は休業。メールサポートは1/4より順次対応いたします。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="news-item" data-category="feature" data-aos="fade-up" data-aos-delay="300">
+                        <div class="news-meta">
+                            <span class="news-tag tag-feature">NEW FEATURE</span>
+                            <time datetime="2024-12-20">2024.12.20</time>
+                        </div>
+                        <h3 class="news-item-title">2段階認証に対応</h3>
+                        <p class="news-item-excerpt">
+                            セキュリティ強化のため、TOTP方式の2段階認証を導入しました。
+                        </p>
+                        <a href="#" class="news-item-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"/>
+                                <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" data-aos="fade-up">
+                    <button class="pagination-btn disabled">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"/>
+                        </svg>
+                    </button>
+                    <span class="pagination-info">1 / 1</span>
+                    <button class="pagination-btn disabled">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="dark-section">
+        <div class="container">
+            <div class="newsletter-box" data-aos="fade-up">
+                <div class="newsletter-content">
+                    <span class="newsletter-label">NEWSLETTER</span>
+                    <h2 class="newsletter-title">最新情報を受け取る</h2>
+                    <p class="newsletter-description">
+                        新機能・キャンペーン情報をメールでお届けします
+                    </p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="your@email.com" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-primary">
+                        <span>SUBSCRIBE</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <span class="cta-label">MEDIA</span>
+                <h2 class="cta-title">
+                    プレスリリース・<br>
+                    取材のお問い合わせ
+                </h2>
+                <p class="cta-description">
+                    メディア関係者様向けの情報提供や取材対応を行っております
+                </p>
+                <div class="cta-buttons">
+                    <a href="press.html" class="btn btn-primary">
+                        <span>PRESS KIT</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // News Filter
+        document.querySelectorAll('.news-filter .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+
+                // Update active button
+                document.querySelectorAll('.news-filter .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter news items
+                document.querySelectorAll('[data-category]').forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュリティ | ORKA ASP</title>
+    <meta name="description" content="ORKA ASPのセキュリティ対策。SSL/TLS暗号化、WAF導入、24時間監視、ISO 27001認証取得など、万全のセキュリティ体制でお客様の情報を保護します。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.svg">
+
+    <!-- Fonts - INDUSTRIAL VOID Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           INDUSTRIAL VOID / TOKYO NIGHT
+           Design System - Security Page
+           ======================================== */
+
+        :root {
+            /* Color Palette */
+            --bg-primary: #050505;
+            --bg-surface: #111111;
+            --bg-elevated: #1a1a1a;
+            --accent-blue: #3b82f6;
+            --accent-lime: #ccff00;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --border-color: #333333;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+
+            /* Typography */
+            --font-display: 'Dela Gothic One', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --font-mono: 'Courier New', monospace;
+
+            /* Spacing */
+            --section-padding: 120px;
+            --container-max: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ========================================
+           HEADER
+           ======================================== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-brand svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .brand-text {
+            font-family: var(--font-display);
+            font-size: 18px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* ========================================
+           PAGE HERO
+           ======================================== */
+
+        .page-hero {
+            padding: 180px 0 100px;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--accent-blue);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-blue);
+            letter-spacing: 0.1em;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           MAIN CONTENT
+           ======================================== */
+
+        .page-content {
+            padding: var(--section-padding) 0;
+        }
+
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .content-section {
+            margin-bottom: 100px;
+        }
+
+        .content-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-blue);
+            padding: 6px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .section-intro {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        /* Security Grid */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .security-card {
+            padding: 32px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .security-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .security-card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .security-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+        }
+
+        .security-card h4 {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .security-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Compliance Grid */
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .compliance-card {
+            padding: 32px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .compliance-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid var(--success-color);
+            flex-shrink: 0;
+        }
+
+        .compliance-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--success-color);
+        }
+
+        .compliance-content h4 {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .compliance-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Info Management List */
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .info-list-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-blue);
+        }
+
+        .info-list-content {
+            flex: 1;
+        }
+
+        .info-list-content h4 {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .info-list-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Dark Section */
+        .dark-section {
+            background: var(--bg-surface);
+            padding: var(--section-padding) 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0;
+        }
+
+        .dark-section .security-card {
+            background: var(--bg-elevated);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            padding: 48px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-blue);
+            margin-top: 80px;
+        }
+
+        .contact-box-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-box-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .contact-box-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+        }
+
+        .contact-box-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent-blue);
+        }
+
+        .contact-email svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent-blue);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+
+        .footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-logo span {
+            font-family: var(--font-display);
+            font-size: 16px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .security-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: column;
+                padding: 24px;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 16px 0;
+                font-size: 16px;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .page-hero {
+                padding: 140px 0 60px;
+            }
+
+            .security-grid,
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .contact-box {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-up">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                SECURITY
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                セキュリティ
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                お客様の大切な情報を守るため、最高水準のセキュリティ対策を実施しています。
+            </p>
+        </div>
+    </section>
+
+    <!-- Security Measures Section -->
+    <main class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <!-- Section 01: セキュリティ対策 -->
+                <section class="content-section" data-aos="fade-up">
+                    <div class="section-header">
+                        <span class="section-number">01</span>
+                        <h2 class="section-title">セキュリティ対策</h2>
+                    </div>
+                    <p class="section-intro">
+                        多層的なセキュリティ対策により、お客様のデータと通信を保護しています。
+                    </p>
+
+                    <div class="security-grid">
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0110 0v4"/>
+                                </svg>
+                            </div>
+                            <h4>SSL/TLS暗号化</h4>
+                            <p>全ての通信を256bit SSL/TLSで暗号化。データの盗聴や改ざんを防止します。</p>
+                        </div>
+
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h4>WAF導入</h4>
+                            <p>Webアプリケーションファイアウォールで、SQLインジェクション等の攻撃を防御。</p>
+                        </div>
+
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                                </svg>
+                            </div>
+                            <h4>二要素認証</h4>
+                            <p>管理画面へのアクセスに二要素認証を採用。不正アクセスを防止します。</p>
+                        </div>
+
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                            </div>
+                            <h4>24時間監視</h4>
+                            <p>不正アクセスを24時間365日監視。異常検知時は即座に対応します。</p>
+                        </div>
+
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </div>
+                            <h4>定期バックアップ</h4>
+                            <p>データを毎日自動バックアップ。万一の障害時も迅速に復旧できます。</p>
+                        </div>
+
+                        <div class="security-card" data-aos="fade-up" data-aos-delay="350">
+                            <div class="security-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                </svg>
+                            </div>
+                            <h4>脆弱性診断</h4>
+                            <p>定期的な第三者機関による脆弱性診断を実施。セキュリティホールを早期発見。</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Dark Section: Compliance -->
+    <section class="dark-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <section class="content-section" data-aos="fade-up">
+                    <div class="section-header">
+                        <span class="section-number">02</span>
+                        <h2 class="section-title">コンプライアンス</h2>
+                    </div>
+                    <p class="section-intro">
+                        国内外の法規制・業界標準に準拠し、信頼性の高いサービスを提供しています。
+                    </p>
+
+                    <div class="compliance-grid">
+                        <div class="compliance-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="compliance-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            <div class="compliance-content">
+                                <h4>個人情報保護法準拠</h4>
+                                <p>日本の個人情報保護法に完全準拠。適切な情報管理体制を整備しています。</p>
+                            </div>
+                        </div>
+
+                        <div class="compliance-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="compliance-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            <div class="compliance-content">
+                                <h4>GDPR対応</h4>
+                                <p>EU一般データ保護規則（GDPR）に対応。グローバルな基準でデータを保護。</p>
+                            </div>
+                        </div>
+
+                        <div class="compliance-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="compliance-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            <div class="compliance-content">
+                                <h4>PCI DSS準拠</h4>
+                                <p>クレジットカード業界のセキュリティ基準に準拠。決済情報を安全に保護します。</p>
+                            </div>
+                        </div>
+
+                        <div class="compliance-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="compliance-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
+                                </svg>
+                            </div>
+                            <div class="compliance-content">
+                                <h4>ISO/IEC 27001認証</h4>
+                                <p>情報セキュリティマネジメントの国際規格認証を取得。体系的な管理を実施。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Management Section -->
+    <section class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <section class="content-section" data-aos="fade-up">
+                    <div class="section-header">
+                        <span class="section-number">03</span>
+                        <h2 class="section-title">情報管理</h2>
+                    </div>
+                    <p class="section-intro">
+                        お客様からお預かりする情報を適切に管理・保護いたします。
+                    </p>
+
+                    <ul class="info-list">
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <div class="info-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0110 0v4"/>
+                                </svg>
+                            </div>
+                            <div class="info-list-content">
+                                <h4>お客様情報の暗号化保存</h4>
+                                <p>個人情報や機密データは全て暗号化して保存。万一の漏洩時も解読を防止します。</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="150">
+                            <div class="info-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <div class="info-list-content">
+                                <h4>原稿・企画書の機密保持</h4>
+                                <p>広告主様からお預かりした原稿や企画書は厳重に管理。第三者への開示は行いません。</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <div class="info-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 010 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="info-list-content">
+                                <h4>アクセス制限による情報漏洩防止</h4>
+                                <p>役職・業務に応じた権限管理を実施。必要最小限のアクセス権限で運用しています。</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="250">
+                            <div class="info-list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 9h6v6H9z"/>
+                                    <path d="M9 1v6H3a2 2 0 00-2 2v6c0 1.1.9 2 2 2h6v6h6v-6h6a2 2 0 002-2V9a2 2 0 00-2-2h-6V1H9z"/>
+                                </svg>
+                            </div>
+                            <div class="info-list-content">
+                                <h4>定期的なセキュリティ監査の実施</h4>
+                                <p>内部監査と外部監査を定期的に実施。継続的なセキュリティ改善に取り組んでいます。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Contact Box -->
+                <div class="contact-box" data-aos="fade-up">
+                    <div class="contact-box-header">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-box-title">セキュリティに関するお問い合わせ</h3>
+                    </div>
+                    <p>
+                        情報セキュリティに関するご質問やご相談は、下記までお問い合わせください。
+                    </p>
+                    <a href="mailto:info@skyfocus-16.com" class="contact-email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        info@skyfocus-16.com
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

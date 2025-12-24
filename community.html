@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMUNITY | ORKA ASP</title>
+    <meta name="description" content="ORKA ASPコミュニティ。招待制メンバーの情報交換、セミナー、ネットワーキングの場。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.svg">
+
+    <!-- OGP -->
+    <meta property="og:title" content="COMMUNITY | ORKA ASP">
+    <meta property="og:description" content="ORKA ASPコミュニティ。招待制メンバーの情報交換、セミナー、ネットワーキングの場。">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #050505;
+            --bg-surface: #111111;
+            --bg-elevated: #1a1a1a;
+            --accent-blue: #3b82f6;
+            --accent-lime: #ccff00;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --border-color: #222222;
+            --font-display: 'Dela Gothic One', cursive;
+            --font-body: 'Outfit', sans-serif;
+            --font-mono: 'Courier New', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-text {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            letter-spacing: 0.2em;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid var(--accent-blue);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .text-accent {
+            color: var(--accent-blue);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* Main Content */
+        main {
+            padding: 80px 0;
+        }
+
+        /* Community Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-dark {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Community Features Grid */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .community-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 40px 32px;
+            transition: all 0.3s ease;
+        }
+
+        .section-dark .community-card {
+            background: var(--bg-primary);
+        }
+
+        .community-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--accent-blue);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .benefits-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefits-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-blue);
+            flex-shrink: 0;
+        }
+
+        /* Events Section */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .event-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .event-date {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-description {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .footer-list {
+            list-style: none;
+        }
+
+        .footer-list li {
+            margin-bottom: 12px;
+        }
+
+        .footer-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .community-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .community-grid,
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down">MEMBERS ONLY</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                EXCLUSIVE<br>
+                <span class="text-accent">COMMUNITY</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                招待制メンバー限定のコミュニティ。<br>
+                情報交換、セミナー、ネットワーキングの場を提供します。
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">FEATURES</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    コミュニティの特徴
+                </h2>
+
+                <div class="community-grid">
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">情報交換フォーラム</h3>
+                        <p class="card-description">
+                            成功事例やノウハウの共有、マーケティング手法の情報交換など、厳選されたメンバー同士で活発な議論を行えます。
+                        </p>
+                    </div>
+
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">限定イベント</h3>
+                        <p class="card-description">
+                            年4回の交流会、PRセミナー、スキルアップワークショップを開催。業界のトップランナーとの直接交流が可能です。
+                        </p>
+                    </div>
+
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">専門リソース</h3>
+                        <p class="card-description">
+                            業界レポート、ツールテンプレート、成功事例集など、メンバー限定の専門リソースにアクセスできます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">STATS</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    コミュニティ実績
+                </h2>
+
+                <div class="stats-grid">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">MEMBERS</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number">48</div>
+                        <div class="stat-label">EVENTS / YEAR</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">SATISFACTION</div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-number">3x</div>
+                        <div class="stat-label">AVG GROWTH</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">BENEFITS</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    メンバー特典
+                </h2>
+
+                <div class="community-grid">
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">優先参加権</h3>
+                        <p class="card-description">
+                            セミナー・ワークショップへの優先参加、限定案件への早期アクセス権を取得できます。
+                        </p>
+                    </div>
+
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">限定レポート</h3>
+                        <p class="card-description">
+                            業界動向レポート、市場分析データ、成功事例集を無料で提供します。
+                        </p>
+                    </div>
+
+                    <div class="community-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">専門サポート</h3>
+                        <p class="card-description">
+                            専任担当者による優先サポート、戦略相談、個別コンサルティングを受けられます。
+                        </p>
+                    </div>
+                </div>
+
+                <ul class="benefits-list" data-aos="fade-up" data-aos-delay="400">
+                    <li>新機能・新案件への先行アクセス</li>
+                    <li>特別報酬レートの適用</li>
+                    <li>メンバー限定ツールの利用</li>
+                    <li>年間表彰・特別ボーナス対象</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">UPCOMING EVENTS</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    今後のイベント
+                </h2>
+
+                <div class="events-grid">
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="event-date">2025.02.15 SAT</div>
+                        <h3 class="event-title">Q1 メンバー交流会</h3>
+                        <p class="event-description">
+                            2025年第1四半期のメンバー交流会。成功事例共有、ネットワーキング、特別ゲストによる講演を予定。
+                        </p>
+                    </div>
+
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="event-date">2025.03.08 SAT</div>
+                        <h3 class="event-title">マーケティング実践セミナー</h3>
+                        <p class="event-description">
+                            最新のアフィリエイトマーケティング手法、SEO戦略、コンテンツマーケティングを学ぶ実践型セミナー。
+                        </p>
+                    </div>
+
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="event-date">2025.04.12 SAT</div>
+                        <h3 class="event-title">ライティングワークショップ</h3>
+                        <p class="event-description">
+                            コンバージョンを高めるライティング技術、訴求力のある文章作成スキルを習得するワークショップ。
+                        </p>
+                    </div>
+
+                    <div class="event-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="event-date">2025.05.17 SAT</div>
+                        <h3 class="event-title">トップアフィリエイター座談会</h3>
+                        <p class="event-description">
+                            月間100万円以上を達成しているトップアフィリエイターによるパネルディスカッション。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title" data-aos="fade-up">
+                JOIN THE<br>
+                <span class="text-accent">COMMUNITY</span>
+            </h2>
+            <p class="cta-description" data-aos="fade-up" data-aos-delay="100">
+                ORKA ASPのメンバーになり、<br>
+                限定コミュニティへのアクセス権を取得しませんか。
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary">JOIN NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

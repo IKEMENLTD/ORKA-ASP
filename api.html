@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API | ORKA ASP - Closed Affiliate Network</title>
+    <meta name="description" content="ORKA ASP REST API。強力なAPIでアフィリエイトマーケティングを自動化。Webhook対応で効率的な運用を実現。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- OGP -->
+    <meta property="og:title" content="API | ORKA ASP">
+    <meta property="og:description" content="強力なAPIでアフィリエイトマーケティングを自動化">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down">DEVELOPERS</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                REST API<br>
+                <span class="text-accent">DOCUMENTATION</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                強力なAPIでアフィリエイトマーケティングを自動化
+            </p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">01 / FEATURES</span>
+                <h2 class="section-title">API機能</h2>
+            </div>
+
+            <div class="api-features-grid">
+                <div class="api-feature" data-aos="fade-up">
+                    <div class="api-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <div class="api-feature-content">
+                        <h3>RESTful API</h3>
+                        <p>標準的なREST設計で直感的に利用可能。JSON形式でのデータ交換に対応。</p>
+                    </div>
+                </div>
+
+                <div class="api-feature" data-aos="fade-up" data-aos-delay="50">
+                    <div class="api-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                    </div>
+                    <div class="api-feature-content">
+                        <h3>Webhook</h3>
+                        <p>リアルタイムイベント通知。成果発生、承認、否認を即座に通知。</p>
+                    </div>
+                </div>
+
+                <div class="api-feature" data-aos="fade-up" data-aos-delay="100">
+                    <div class="api-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <div class="api-feature-content">
+                        <h3>OAuth 2.0</h3>
+                        <p>セキュアな認証。APIキー＋シークレットによる強固な認証。</p>
+                    </div>
+                </div>
+
+                <div class="api-feature" data-aos="fade-up" data-aos-delay="150">
+                    <div class="api-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        </svg>
+                    </div>
+                    <div class="api-feature-content">
+                        <h3>Bulk API</h3>
+                        <p>大量データの一括処理。CSV/JSONでのエクスポート・インポート対応。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endpoints -->
+    <section class="dark-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">02 / ENDPOINTS</span>
+                <h2 class="section-title">主要エンドポイント</h2>
+            </div>
+
+            <div class="endpoints-list">
+                <div class="endpoint-item" data-aos="fade-up">
+                    <div class="endpoint-method get">GET</div>
+                    <div class="endpoint-path">/api/v2/reports/conversions</div>
+                    <div class="endpoint-desc">成果レポート取得</div>
+                </div>
+
+                <div class="endpoint-item" data-aos="fade-up" data-aos-delay="50">
+                    <div class="endpoint-method post">POST</div>
+                    <div class="endpoint-path">/api/v2/links/create</div>
+                    <div class="endpoint-desc">広告リンク生成</div>
+                </div>
+
+                <div class="endpoint-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="endpoint-method put">PUT</div>
+                    <div class="endpoint-path">/api/v2/conversions/{id}/status</div>
+                    <div class="endpoint-desc">成果承認ステータス更新</div>
+                </div>
+
+                <div class="endpoint-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="endpoint-method get">GET</div>
+                    <div class="endpoint-path">/api/v2/campaigns</div>
+                    <div class="endpoint-desc">キャンペーン一覧取得</div>
+                </div>
+
+                <div class="endpoint-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="endpoint-method post">POST</div>
+                    <div class="endpoint-path">/api/v2/webhooks/register</div>
+                    <div class="endpoint-desc">Webhook登録</div>
+                </div>
+
+                <div class="endpoint-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="endpoint-method delete">DELETE</div>
+                    <div class="endpoint-path">/api/v2/webhooks/{id}</div>
+                    <div class="endpoint-desc">Webhook削除</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Example -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">03 / EXAMPLE</span>
+                <h2 class="section-title">コードサンプル</h2>
+            </div>
+
+            <div class="code-tabs" data-aos="fade-up">
+                <div class="code-tab-buttons">
+                    <button class="code-tab-btn active" data-lang="curl">cURL</button>
+                    <button class="code-tab-btn" data-lang="node">Node.js</button>
+                    <button class="code-tab-btn" data-lang="python">Python</button>
+                </div>
+
+                <div class="code-block" data-lang="curl">
+                    <pre><code>curl -X GET "https://api.orka-asp.com/v2/reports/conversions" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "start_date": "2025-01-01",
+    "end_date": "2025-01-31",
+    "status": "approved"
+  }'</code></pre>
+                </div>
+
+                <div class="code-block hidden" data-lang="node">
+                    <pre><code>const response = await fetch(
+  'https://api.orka-asp.com/v2/reports/conversions',
+  {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      start_date: '2025-01-01',
+      end_date: '2025-01-31',
+      status: 'approved'
+    })
+  }
+);
+
+const data = await response.json();</code></pre>
+                </div>
+
+                <div class="code-block hidden" data-lang="python">
+                    <pre><code>import requests
+
+response = requests.get(
+    'https://api.orka-asp.com/v2/reports/conversions',
+    headers={
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+    },
+    json={
+        'start_date': '2025-01-01',
+        'end_date': '2025-01-31',
+        'status': 'approved'
+    }
+)
+
+data = response.json()</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rate Limits -->
+    <section class="dark-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">04 / LIMITS</span>
+                <h2 class="section-title">レート制限</h2>
+            </div>
+
+            <div class="rate-limit-grid">
+                <div class="rate-limit-card" data-aos="fade-up">
+                    <div class="rate-limit-plan">BASIC</div>
+                    <div class="rate-limit-value">60</div>
+                    <div class="rate-limit-unit">requests / min</div>
+                    <div class="rate-limit-daily">10,000 / day</div>
+                </div>
+
+                <div class="rate-limit-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rate-limit-plan">STANDARD</div>
+                    <div class="rate-limit-value">300</div>
+                    <div class="rate-limit-unit">requests / min</div>
+                    <div class="rate-limit-daily">100,000 / day</div>
+                </div>
+
+                <div class="rate-limit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rate-limit-plan">ENTERPRISE</div>
+                    <div class="rate-limit-value">*</div>
+                    <div class="rate-limit-unit">UNLIMITED</div>
+                    <div class="rate-limit-daily">No limits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SDK -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">05 / SDK</span>
+                <h2 class="section-title">公式SDK</h2>
+            </div>
+
+            <div class="sdk-grid">
+                <a href="#" class="sdk-card" data-aos="fade-up">
+                    <div class="sdk-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <div class="sdk-content">
+                        <h4>Node.js SDK</h4>
+                        <p>npm install @orka-asp/sdk</p>
+                    </div>
+                    <div class="sdk-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <a href="#" class="sdk-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="sdk-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                        </svg>
+                    </div>
+                    <div class="sdk-content">
+                        <h4>Python SDK</h4>
+                        <p>pip install orka-asp</p>
+                    </div>
+                    <div class="sdk-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <a href="#" class="sdk-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sdk-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.5 2.5c-4.9 0-9 4-9 9 0 4.9 4 9 9 9 4.9 0 9-4 9-9 0-4.9-4-9-9-9zm-4.7 3.9c1.4-1.4 3.3-2.2 5.2-2.2.8 0 1.5.1 2.2.3l-2.2 2.2-3 3-2.2 2.2c-.2-.7-.3-1.4-.3-2.2 0-1.2.3-2.3.8-3.3.2-.1.3-.1.5 0l-.5-.5.4-.4-.4-.1zm9.4 4.1c0 .8-.1 1.5-.3 2.2l-2.2-2.2-3-3-2.2-2.2c.7-.2 1.4-.3 2.2-.3 1.2 0 2.3.3 3.3.8.1.2.1.3 0 .5l.5-.5.4.4.1-.4.2.7c.2 1.4.2 2.8 0 4.2zm-9.4 4.1c-1.4-1.4-2.2-3.3-2.2-5.2 0-.8.1-1.5.3-2.2l2.2 2.2 3 3 2.2 2.2c-.7.2-1.4.3-2.2.3-1.2 0-2.3-.3-3.3-.8-.1-.2-.1-.3 0-.5l-.5.5-.4-.4.1.4-.2-.7zm9.4-4.1c0 .8-.1 1.5-.3 2.2l-2.2-2.2-3-3-2.2-2.2c.7-.2 1.4-.3 2.2-.3 1.9 0 3.8.8 5.2 2.2 1.4 1.4 2.2 3.3 2.2 5.2z"/>
+                        </svg>
+                    </div>
+                    <div class="sdk-content">
+                        <h4>PHP SDK</h4>
+                        <p>composer require orka-asp/sdk</p>
+                    </div>
+                    <div class="sdk-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <span class="cta-label">GET STARTED</span>
+                <h2 class="cta-title">
+                    APIアクセスを<br>
+                    申請する
+                </h2>
+                <p class="cta-description">
+                    完全なAPIドキュメントとサンプルコードをご用意しています<br>
+                    <span class="cta-note">* クローズドASP会員のみ利用可能</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>REQUEST ACCESS</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                    <a href="faq.html" class="btn btn-secondary">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Code Tab Switching
+        document.querySelectorAll('.code-tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+
+                // Update active button
+                document.querySelectorAll('.code-tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show/hide code blocks
+                document.querySelectorAll('.code-block').forEach(block => {
+                    if (block.dataset.lang === lang) {
+                        block.classList.remove('hidden');
+                    } else {
+                        block.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

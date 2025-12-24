@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRESS | ORKA ASP</title>
+    <meta name="description" content="ORKA ASPのプレスリリース。最新情報、新機能、業界動向をお伝えします。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.svg">
+
+    <!-- OGP -->
+    <meta property="og:title" content="PRESS | ORKA ASP">
+    <meta property="og:description" content="ORKA ASPのプレスリリース。最新情報、新機能、業界動向をお伝えします。">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #050505;
+            --bg-surface: #111111;
+            --accent-blue: #3b82f6;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --border-color: #222222;
+            --font-display: 'Dela Gothic One', cursive;
+            --font-body: 'Outfit', sans-serif;
+            --font-mono: 'Courier New', monospace;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5, 5, 5, 0.95); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
+        .brand-text { font-family: var(--font-display); font-size: 1.25rem; }
+        .nav-menu { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+        .nav-link:hover { color: var(--text-primary); }
+        .nav-toggle { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text-primary); }
+
+        /* Page Hero */
+        .page-hero { padding: 160px 0 80px; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+        .hero-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 0.2em; margin-bottom: 24px; padding: 8px 16px; border: 1px solid var(--accent-blue); }
+        .hero-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 24px; }
+        .text-accent { color: var(--accent-blue); }
+        .hero-description { font-size: 1.125rem; color: var(--text-secondary); max-width: 600px; }
+
+        /* Main Content */
+        main { padding: 80px 0; }
+        .section { padding: 80px 0; }
+        .section-dark { background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .section-label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 0.2em; margin-bottom: 16px; }
+        .section-title { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 48px; }
+
+        /* Press Releases */
+        .press-list { display: flex; flex-direction: column; gap: 24px; }
+        .press-item { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 40px; transition: all 0.3s ease; }
+        .press-item:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+        .press-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 0.1em; margin-bottom: 16px; }
+        .press-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 16px; }
+        .press-excerpt { color: var(--text-secondary); line-height: 1.8; }
+        .press-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.625rem; padding: 4px 12px; border: 1px solid var(--border-color); margin-right: 8px; margin-top: 16px; color: var(--text-muted); }
+
+        /* Media Kit Section */
+        .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .media-card { background: var(--bg-primary); border: 1px solid var(--border-color); padding: 32px; text-align: center; transition: all 0.3s ease; }
+        .media-card:hover { border-color: var(--accent-blue); }
+        .media-icon { width: 64px; height: 64px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent-blue); }
+        .media-icon svg { width: 28px; height: 28px; stroke: var(--accent-blue); fill: none; stroke-width: 2; }
+        .media-title { font-family: var(--font-display); font-size: 1rem; margin-bottom: 8px; }
+        .media-description { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 16px; }
+        .download-btn { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); text-decoration: none; padding: 8px 16px; border: 1px solid var(--accent-blue); transition: all 0.3s; }
+        .download-btn:hover { background: var(--accent-blue); color: white; }
+
+        /* Contact Box */
+        .contact-box { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 48px; text-align: center; margin-top: 64px; }
+        .contact-box h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 16px; }
+        .contact-box p { color: var(--text-secondary); margin-bottom: 8px; }
+        .contact-email { color: var(--accent-blue); font-size: 1.125rem; }
+
+        /* Footer */
+        .footer { background: var(--bg-primary); border-top: 1px solid var(--border-color); padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 48px; margin-bottom: 64px; }
+        .footer-brand-text { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 16px; }
+        .footer-description { color: var(--text-secondary); font-size: 0.875rem; line-height: 1.7; }
+        .footer-title { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 24px; }
+        .footer-list { list-style: none; }
+        .footer-list li { margin-bottom: 12px; }
+        .footer-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+        .footer-list a:hover { color: var(--text-primary); }
+        .footer-bottom { padding-top: 40px; border-top: 1px solid var(--border-color); }
+        .footer-copyright { font-size: 0.75rem; color: var(--text-muted); }
+
+        @media (max-width: 1024px) { .media-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); flex-direction: column; padding: 24px; gap: 16px; }
+            .nav-menu.active { display: flex; }
+            .nav-toggle { display: flex; }
+            .media-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down">MEDIA</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                PRESS<br>
+                <span class="text-accent">RELEASES</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                ORKA ASPの最新ニュース、報道関係者向け情報を<br>
+                ご確認いただけます。
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">LATEST NEWS</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">最新のプレスリリース</h2>
+
+                <div class="press-list">
+                    <article class="press-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="press-date">2025.01.15</div>
+                        <h3 class="press-title">業界主要メディア3社との提携を発表</h3>
+                        <p class="press-excerpt">アフィリエイト業界の健全な発展を支援するため、主要メディア3社と戦略的提携を締結しました。これにより、より透明性の高い広告運用環境を構築してまいります。</p>
+                        <span class="press-tag">PARTNERSHIP</span>
+                        <span class="press-tag">EXPANSION</span>
+                    </article>
+
+                    <article class="press-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="press-date">2025.01.10</div>
+                        <h3 class="press-title">クローズドASPサービスを本格開始</h3>
+                        <p class="press-excerpt">厳選されたパートナーのみが参加できる招待制クローズドASPサービスを本格的に開始しました。高品質な広告運用と確実な成果を実現します。</p>
+                        <span class="press-tag">SERVICE LAUNCH</span>
+                    </article>
+
+                    <article class="press-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="press-date">2024.12.20</div>
+                        <h3 class="press-title">API v2.0のリリースを発表</h3>
+                        <p class="press-excerpt">開発者向けに新しいAPI v2.0をリリースしました。RESTful設計、詳細なドキュメント、高いセキュリティを備え、システム連携がより容易になります。</p>
+                        <span class="press-tag">TECHNOLOGY</span>
+                        <span class="press-tag">API</span>
+                    </article>
+
+                    <article class="press-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="press-date">2024.12.01</div>
+                        <h3 class="press-title">ORKA ASPのサービス準備開始</h3>
+                        <p class="press-excerpt">クローズドASPプラットフォーム「ORKA ASP」のサービス提供に向け、準備を開始しました。招待制により品質を担保した新しいASPを目指します。</p>
+                        <span class="press-tag">ANNOUNCEMENT</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Kit Section -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-label" data-aos="fade-up">MEDIA KIT</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">メディアキット</h2>
+
+                <div class="media-grid">
+                    <div class="media-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="media-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                        </div>
+                        <h3 class="media-title">ロゴデータ</h3>
+                        <p class="media-description">各種形式のロゴデータ（SVG, PNG, AI）</p>
+                        <a href="#" class="download-btn">DOWNLOAD</a>
+                    </div>
+
+                    <div class="media-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="media-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <h3 class="media-title">会社概要</h3>
+                        <p class="media-description">事業概要・沿革（PDF形式）</p>
+                        <a href="#" class="download-btn">DOWNLOAD</a>
+                    </div>
+
+                    <div class="media-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="media-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                        </div>
+                        <h3 class="media-title">サービス資料</h3>
+                        <p class="media-description">サービス紹介資料（PDF形式）</p>
+                        <a href="#" class="download-btn">DOWNLOAD</a>
+                    </div>
+                </div>
+
+                <div class="contact-box" data-aos="fade-up">
+                    <h3>報道関係者の方へ</h3>
+                    <p>取材・掲載に関するお問い合わせ</p>
+                    <p class="contact-email">info@skyfocus-16.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 100 });
+        document.querySelector('.nav-toggle').addEventListener('click', function() { document.querySelector('.nav-menu').classList.toggle('active'); });
+    </script>
+</body>
+</html>

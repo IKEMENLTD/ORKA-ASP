@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人様向け | オルカASP</title>
+    <meta name="description" content="個人の想いを心に響く文章に。ブログ、SNS、個人事業のPR文章を地域のプロライターが作成します。">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">ORKA<span class="logo-dot">.</span>ASP</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="advertiser.html" class="nav-link">広告主向け</a></li>
+                <li><a href="affiliate.html" class="nav-link">アフィリエイター向け</a></li>
+                <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" data-aos="fade-down">
+                <span class="badge-dot"></span>
+                FOR PERSONAL
+            </div>
+            <h1 class="hero-title" data-aos="fade-up">
+                <span class="title-label">PERSONAL SERVICE</span>
+                <span class="title-main">個人様向けサービス</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="100">
+                個人の想いを心に響く文章に。<br>
+                ブログ、SNS、個人事業のPR文章を<br class="sp-only">地域のプロライターが作成。
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" data-aos="fade-up">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-unit">日</span>
+                    <span class="stat-label">平均納期</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98</span>
+                    <span class="stat-unit">%</span>
+                    <span class="stat-label">満足度</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200</span>
+                    <span class="stat-unit">+</span>
+                    <span class="stat-label">執筆実績</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number accent">無制限</span>
+                    <span class="stat-label">修正回数</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">01 / WHY CHOOSE US</span>
+                <h2 class="section-title">なぜプロに依頼するのか</h2>
+            </div>
+
+            <div class="content-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="content-text">
+                    <p class="lead-text">
+                        個人で文章を書いても反応が得られない。<br>
+                        それは内容ではなく、伝え方の問題かもしれません。
+                    </p>
+                    <p>
+                        同じ内容でも、プロが書いた文章は読み手の心に響きます。
+                        ブログ集客、SNSでの発信、転職活動、起業PRなど、
+                        あなたの目的に合わせて最適な文章を作成します。
+                    </p>
+                </div>
+                <div class="content-visual">
+                    <div class="comparison-box">
+                        <div class="comparison-item">
+                            <span class="comparison-label">自分で書いた場合</span>
+                            <span class="comparison-value negative">反応率 0.5%</span>
+                        </div>
+                        <div class="comparison-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="comparison-label">プロに依頼した場合</span>
+                            <span class="comparison-value positive">反応率 3.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">02 / PRICE CALCULATOR</span>
+                <h2 class="section-title">料金シミュレーター</h2>
+            </div>
+
+            <div class="calculator-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="calculator-inputs">
+                    <div class="calc-input-group">
+                        <label for="word-count">文字数</label>
+                        <select id="word-count" class="calc-select">
+                            <option value="500">500文字以下</option>
+                            <option value="1000" selected>1,000文字程度</option>
+                            <option value="2000">2,000文字程度</option>
+                            <option value="3000">3,000文字以上</option>
+                        </select>
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="content-type">コンテンツ種類</label>
+                        <select id="content-type" class="calc-select">
+                            <option value="1.0">ブログ記事</option>
+                            <option value="1.2" selected>SNS投稿</option>
+                            <option value="1.5">プロフィール文</option>
+                            <option value="1.8">プレスリリース</option>
+                        </select>
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="urgency">納期</label>
+                        <select id="urgency" class="calc-select">
+                            <option value="1.0" selected>1週間以内</option>
+                            <option value="1.3">3日以内</option>
+                            <option value="1.5">24時間以内</option>
+                        </select>
+                    </div>
+                    <div class="calc-input-group">
+                        <label for="research">取材・リサーチ</label>
+                        <select id="research" class="calc-select">
+                            <option value="0" selected>不要</option>
+                            <option value="5000">電話取材</option>
+                            <option value="10000">対面取材</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calculator-result">
+                    <span class="result-label">お見積もり金額</span>
+                    <div class="result-amount">
+                        <span class="currency">¥</span>
+                        <span class="amount" id="calc-result">15,000</span>
+                    </div>
+                    <p class="result-note">
+                        基本料金：文字数 x 種別 x 納期 + オプション<br>
+                        <span class="discount-text">初回ご利用の方は20%割引適用</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">03 / MEMBERSHIP PLANS</span>
+                <h2 class="section-title">会員ランク制度</h2>
+            </div>
+
+            <p class="section-description" data-aos="fade-up" data-aos-delay="50">
+                ご利用回数に応じてランクアップ。<br>
+                上位ランクほど特典が充実します。
+            </p>
+
+            <div class="plans-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-rank">RANK 01</span>
+                        <h3 class="plan-name">LIGHT</h3>
+                        <p class="plan-condition">初回〜年3回利用</p>
+                    </div>
+                    <ul class="plan-benefits">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            初回20%割引
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            修正3回まで
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            メール相談
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-rank">RANK 02</span>
+                        <h3 class="plan-name">STANDARD</h3>
+                        <p class="plan-condition">年4〜12回利用</p>
+                    </div>
+                    <ul class="plan-benefits">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            常時10%割引
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            修正回数無制限
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            電話相談対応
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-rank">RANK 03</span>
+                        <h3 class="plan-name">PREMIUM</h3>
+                        <p class="plan-condition">年13〜24回利用</p>
+                    </div>
+                    <ul class="plan-benefits">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            常時15%割引
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            優先対応（納期短縮）
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            無料ミニ取材1回
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="plan-badge">BEST</div>
+                    <div class="plan-header">
+                        <span class="plan-rank">RANK 04</span>
+                        <h3 class="plan-name">VIP</h3>
+                        <p class="plan-condition">年25回以上利用</p>
+                    </div>
+                    <ul class="plan-benefits">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            常時20%割引
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            専属ライター担当
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l4 4 6-8"/>
+                            </svg>
+                            月1回無料コンサル
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">04 / FEATURES</span>
+                <h2 class="section-title">サービスの特長</h2>
+            </div>
+
+            <div class="features-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="16" cy="16" r="12"/>
+                            <path d="M16 10v6l4 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">スピード対応</h3>
+                    <p class="feature-description">
+                        24時間以内の特急仕上げオプション。
+                        急なイベントやキャンペーンにも柔軟に対応します。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="16" cy="12" r="6"/>
+                            <path d="M6 28c0-6 4-10 10-10s10 4 10 10"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">個性を活かす</h3>
+                    <p class="feature-description">
+                        一人ひとりの魅力を最大限に引き出す文章。
+                        読み手に強い印象を残すオリジナリティ。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="16" cy="16" r="10"/>
+                            <circle cx="16" cy="16" r="4"/>
+                            <path d="M16 2v4M16 26v4M2 16h4M26 16h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">目的に最適化</h3>
+                    <p class="feature-description">
+                        ブログ集客、SNS拡散、転職活動、起業PR。
+                        目的に合わせた最適な文章構成と表現。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 4l12 8v12l-12 8-12-8V12z"/>
+                            <path d="M16 12v8M12 16h8"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">丁寧なヒアリング</h3>
+                    <p class="feature-description">
+                        想いや背景をじっくりとお聞きして、
+                        表面的でない深みのあるPR文章を作成。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 28V8l12-4 12 4v20"/>
+                            <path d="M4 8l12 4 12-4"/>
+                            <path d="M16 12v16"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">アドバイス付き</h3>
+                    <p class="feature-description">
+                        文章作成だけでなく、効果的な発信方法や
+                        継続的な情報発信のコツもアドバイス。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M8 16a8 8 0 1116 0"/>
+                            <path d="M16 8v8l6 6"/>
+                            <circle cx="16" cy="16" r="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">長期サポート</h3>
+                    <p class="feature-description">
+                        継続的なサポートを提供。
+                        ブランディング構築を長期的にお手伝い。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Types Section -->
+    <section class="content-section dark-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">05 / CONTENT TYPES</span>
+                <h2 class="section-title">対応可能な文章タイプ</h2>
+            </div>
+
+            <div class="content-types-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="content-type-card">
+                    <span class="type-number">01</span>
+                    <h3 class="type-title">ブログ記事</h3>
+                    <p class="type-description">
+                        個人ブログ、企業ブログ、コラム記事など、
+                        読み手を惹き付ける文章を作成。
+                    </p>
+                </div>
+
+                <div class="content-type-card">
+                    <span class="type-number">02</span>
+                    <h3 class="type-title">SNS投稿</h3>
+                    <p class="type-description">
+                        Twitter、Instagram、Facebook等、
+                        各プラットフォームの特性に合わせた投稿文。
+                    </p>
+                </div>
+
+                <div class="content-type-card">
+                    <span class="type-number">03</span>
+                    <h3 class="type-title">プロフィール文</h3>
+                    <p class="type-description">
+                        企業HP、転職サイト、SNSなど、
+                        魅力的な自己紹介文を作成。
+                    </p>
+                </div>
+
+                <div class="content-type-card">
+                    <span class="type-number">04</span>
+                    <h3 class="type-title">プレスリリース</h3>
+                    <p class="type-description">
+                        新サービス、イベント、受賞など、
+                        メディア掲載を目指したプロ品質の文章。
+                    </p>
+                </div>
+
+                <div class="content-type-card">
+                    <span class="type-number">05</span>
+                    <h3 class="type-title">イベント告知</h3>
+                    <p class="type-description">
+                        セミナー、ワークショップ、個人主催イベントなど、
+                        参加者を集める魅力的な文章。
+                    </p>
+                </div>
+
+                <div class="content-type-card">
+                    <span class="type-number">06</span>
+                    <h3 class="type-title">メルマガ</h3>
+                    <p class="type-description">
+                        定期発信のメルマガや企業ニュースレター、
+                        継続読者を育てる文章。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">06 / TESTIMONIALS</span>
+                <h2 class="section-title">お客様の声</h2>
+            </div>
+
+            <div class="testimonials-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">TK</div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">T.K様</h4>
+                            <p class="testimonial-role">フリーランスライター / PREMIUM会員</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "自分で書いたブログ記事はいまいち反応が悪く、
+                        フォロワーもなかなか伸びない状態でした。
+                        お願いしてから、同じ内容でも読み手に伝わる文章に変わり、
+                        エンゲージメントが大幅に向上しました。"
+                    </blockquote>
+                    <div class="testimonial-stats">
+                        <div class="testimonial-stat">
+                            <span class="stat-value">300%</span>
+                            <span class="stat-label">エンゲージメント向上</span>
+                        </div>
+                        <div class="testimonial-stat">
+                            <span class="stat-value">+2,000</span>
+                            <span class="stat-label">フォロワー増加</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MY</div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">M.Y様</h4>
+                            <p class="testimonial-role">美容サロン経営 / STANDARD会員</p>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "美容サロンの新メニューやキャンペーンのPR文を
+                        お願いしています。プロが書いた文章は明らかに反応が違います。
+                        お客様からの問い合わせも増えて、売上につながっています。"
+                    </blockquote>
+                    <div class="testimonial-stats">
+                        <div class="testimonial-stat">
+                            <span class="stat-value">+40%</span>
+                            <span class="stat-label">新規客増加</span>
+                        </div>
+                        <div class="testimonial-stat">
+                            <span class="stat-value">15件</span>
+                            <span class="stat-label">文章作成実績</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">07 / PROCESS</span>
+                <h2 class="section-title">ご利用の流れ</h2>
+            </div>
+
+            <div class="process-timeline" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">お問い合わせ</h3>
+                        <p class="step-description">
+                            メールまたはお電話でご相談内容をお聞かせください。
+                            作成したい文章の種類、文字数、納期などを確認します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">ヒアリング・お見積もり</h3>
+                        <p class="step-description">
+                            詳細なヒアリングでご要望をお聞かせします。
+                            目的、ターゲット、トーンなどを確認し、お見積もりを提示。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">ご注文・制作開始</h3>
+                        <p class="step-description">
+                            正式にご注文いただいた後、専門ライターが制作開始。
+                            途中経過も適宜ご報告し、ご要望に応じて調整します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">納品・アフターサポート</h3>
+                        <p class="step-description">
+                            完成した文章を納品し、フィードバックをいただきます。
+                            修正があれば対応し、継続的なサポートも提供。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    あなたの想いを伝える<br>
+                    プロの文章で情報発信を強化
+                </h2>
+                <p class="cta-description">
+                    ブログ、SNS、個人事業のPRに<br>
+                    心に響く文章で差別化を実現
+                </p>
+                <a href="contact.html" class="btn btn-primary btn-large">
+                    無料相談・お問い合わせ
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 10h12M12 4l6 6-6 6"/>
+                    </svg>
+                </a>
+                <p class="cta-note">
+                    お問い合わせから半日以内にご連絡 / 初回20%割引適用
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg class="logo" viewBox="0 0 120 40" fill="none">
+                        <rect width="40" height="40" rx="8" fill="#111"/>
+                        <path d="M8 20C8 20 10 14 16 12C22 10 26 12 28 16C29 18 28 22 24 24C20 26 14 26 10 24C6 22 5 18 8 20Z M18 16C18.5 16 19 16.5 19 17C19 17.5 18.5 18 18 18C17.5 18 17 17.5 17 17C17 16.5 17.5 16 18 16Z M24 14L26 12M28 14L30 12" stroke="white" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="25" font-family="Dela Gothic One" font-weight="400" font-size="14" fill="white">オルカASP</text>
+                    </svg>
+                    <p class="footer-description">
+                        完全招待制クローズドASP - 厳選されたパートナーシップ
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">サービス</h4>
+                        <ul class="footer-list">
+                            <li><a href="advertiser.html">広告主向け</a></li>
+                            <li><a href="affiliate.html">アフィリエイター向け</a></li>
+                            <li><a href="plans.html">料金プラン</a></li>
+                            <li><a href="api.html">API連携</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">サポート</h4>
+                        <ul class="footer-list">
+                            <li><a href="faq.html">よくある質問</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="help.html">ヘルプセンター</a></li>
+                            <li><a href="community.html">コミュニティ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">会社情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="careers.html">採用情報</a></li>
+                            <li><a href="press.html">プレスリリース</a></li>
+                            <li><a href="news.html">お知らせ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">法的情報</h4>
+                        <ul class="footer-list">
+                            <li><a href="terms.html">利用規約</a></li>
+                            <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+                            <li><a href="commercial-law.html">特定商取引法</a></li>
+                            <li><a href="security.html">セキュリティ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 合同会社スカイフォーカス. All rights reserved.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        // Price Calculator
+        function calculatePrice() {
+            const wordCount = parseInt(document.getElementById('word-count').value) || 1000;
+            const contentType = parseFloat(document.getElementById('content-type').value) || 1.0;
+            const urgency = parseFloat(document.getElementById('urgency').value) || 1.0;
+            const research = parseInt(document.getElementById('research').value) || 0;
+
+            const basePrice = wordCount * 10;
+            const adjustedPrice = basePrice * contentType * urgency;
+            const totalPrice = adjustedPrice + research;
+
+            const formatted = new Intl.NumberFormat('ja-JP').format(totalPrice);
+            document.getElementById('calc-result').textContent = formatted;
+        }
+
+        document.querySelectorAll('.calc-select').forEach(select => {
+            select.addEventListener('change', calculatePrice);
+        });
+
+        calculatePrice();
+    </script>
+</body>
+</html>
