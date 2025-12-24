@@ -281,6 +281,7 @@ a {
     width: 20px;
     height: 2px;
     background: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* ------------------------------------------------------------------
@@ -3176,8 +3177,8 @@ section {
    ブレークポイント: 767px以下 = モバイル、768px以上 = タブレット/デスクトップ
 ------------------------------------------------------------------ */
 @media (max-width: 767px) {
+    /* ナビゲーション - responsive.cssで詳細スタイル定義済み */
     .nav-menu {
-        /* responsive.css側でスライドインメニューとして表示 */
         display: flex;
     }
 
@@ -3186,7 +3187,7 @@ section {
     }
 
     .hero-title {
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 8vw, 3.5rem);
     }
 
     .hero-stats .stats-row {
@@ -3194,21 +3195,20 @@ section {
         gap: 2rem;
     }
 
+    /* グリッドレイアウトをモバイル用に調整 */
     .about-content,
     .about-stats,
     .features .container,
     .plans-grid,
-    .story-card,
     .blog-grid,
-    .performance-grid,
-    .footer-content,
-    .footer-links {
-        grid-template-columns: 1fr;
-        flex-direction: column;
+    .performance-grid {
         display: flex;
+        flex-direction: column;
     }
 
     .story-card {
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
     }
 
@@ -3229,6 +3229,8 @@ section {
     .cta-section .btn {
         width: 100%;
     }
+
+    /* フッター - responsive.cssで詳細スタイル定義済み */
 
     /* PAGE LAYOUTS - Mobile */
     .page-hero {
