@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. iOS Safari 100vh 問題対策 ---
+    const setVh = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(setVh, 100);
+    });
+
     // --- 1. Initialize AOS (Animate On Scroll) ---
     AOS.init({
         duration: 800,
@@ -30,27 +41,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ensure we don't break if elements are missing
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
-            // Toggle active state
-            const isActive = navMenu.classList.contains('active');
+            // Toggle active state - CSSで全てのスタイリングを管理
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('open');
 
-            if (isActive) {
-                navMenu.classList.remove('active');
-                navMenu.style.display = 'none'; // Or handle via CSS
-                navToggle.classList.remove('open');
+            // body スクロール制御（メニュー開放時）
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
             } else {
-                navMenu.classList.add('active');
-                navMenu.style.display = 'flex'; // Force flex
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'fixed';
-                navMenu.style.top = '70px'; // Below header
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = '#fffef8';
-                navMenu.style.borderBottom = '3px solid #111';
-                navMenu.style.padding = '2rem';
-                navMenu.style.zIndex = '999';
-                navToggle.classList.add('open');
+                document.body.style.overflow = '';
             }
+        });
+
+        // メニュー外クリックで閉じる
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // メニューリンククリックで閉じる
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('open');
+                document.body.style.overflow = '';
+            });
         });
     }
 
