@@ -20,6 +20,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/responsive.css">
+    <link rel="stylesheet" href="assets/typography-responsive.css">
 </head>
 <body>
     <!-- Header -->
@@ -74,51 +76,51 @@
     <!-- Why Closed ASP -->
     <section class="about">
         <div class="container">
-            <div class="section-header" style="margin-bottom: 4rem;">
+            <div class="section-header section-header-wide">
                 <h2 class="section-title">
                     <span class="gradient-text">クローズドASP</span>を選ぶ理由
                 </h2>
-                <p class="section-description" style="max-width: 700px;">
+                <p class="section-description section-description-wide">
                     一般的なASPでは広告主とアフィリエイターの質の管理が不十分。
                     クローズドASPで高品質なマーケティングを実現します。
                 </p>
             </div>
 
             <!-- Comparison Table -->
-            <div style="overflow-x: auto; margin-bottom: 4rem;">
-                <table style="width: 100%; min-width: 700px; border-collapse: collapse;">
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th style="background: var(--c-surface); color: var(--c-accent); padding: 1.5rem; text-align: left; font-family: var(--f-mono); text-transform: uppercase; font-size: 0.8rem; border: 1px solid var(--c-border);">比較項目</th>
-                            <th style="background: var(--c-accent); color: var(--c-bg); padding: 1.5rem; text-align: left; font-family: var(--f-mono); text-transform: uppercase; font-size: 0.8rem; border: 1px solid var(--c-border);">オルカASP</th>
-                            <th style="background: var(--c-surface); color: var(--c-text-muted); padding: 1.5rem; text-align: left; font-family: var(--f-mono); text-transform: uppercase; font-size: 0.8rem; border: 1px solid var(--c-border);">一般的なASP</th>
+                            <th class="table-header-default">比較項目</th>
+                            <th class="table-header-highlight">オルカASP</th>
+                            <th class="table-header-muted">一般的なASP</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); font-family: var(--f-body);">ネットワーク品質</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-accent);">厳選されたアフィリエイター</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-text-muted);">質の管理が困難</td>
+                            <td>ネットワーク品質</td>
+                            <td class="highlight">厳選されたアフィリエイター</td>
+                            <td class="muted">質の管理が困難</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); font-family: var(--f-body);">成果承認率</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-accent);">95%の高い承認率</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-text-muted);">60-70%程度</td>
+                            <td>成果承認率</td>
+                            <td class="highlight">95%の高い承認率</td>
+                            <td class="muted">60-70%程度</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); font-family: var(--f-body);">コストパフォーマンス</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-accent);">成果報酬型で無駄なし</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-text-muted);">固定費が発生</td>
+                            <td>コストパフォーマンス</td>
+                            <td class="highlight">成果報酬型で無駄なし</td>
+                            <td class="muted">固定費が発生</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); font-family: var(--f-body);">サポート体制</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-accent);">専任担当者が対応</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-text-muted);">問い合わせ対応のみ</td>
+                            <td>サポート体制</td>
+                            <td class="highlight">専任担当者が対応</td>
+                            <td class="muted">問い合わせ対応のみ</td>
                         </tr>
                         <tr>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); font-family: var(--f-body);">ブランド保護</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-accent);">厳格な審査基準</td>
-                            <td style="padding: 1.5rem; border: 1px solid var(--c-border); color: var(--c-text-muted);">管理が困難</td>
+                            <td>ブランド保護</td>
+                            <td class="highlight">厳格な審査基準</td>
+                            <td class="muted">管理が困難</td>
                         </tr>
                     </tbody>
                 </table>
@@ -229,19 +231,19 @@
     <!-- Process Timeline -->
     <section class="about">
         <div class="container">
-            <div class="section-header" style="margin-bottom: 4rem;">
+            <div class="section-header section-header-wide">
                 <h2 class="section-title">
                     <span class="gradient-text">ご利用</span>の流れ
                 </h2>
             </div>
 
-            <div style="max-width: 800px;">
+            <div class="process-timeline-wrapper">
                 <!-- Step 1 -->
-                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem; position: relative;" data-aos="fade-up">
-                    <div style="width: 60px; height: 60px; background: var(--c-accent); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; color: var(--c-bg);">01</div>
-                    <div style="border-left: 1px solid var(--c-border); padding-left: 2rem;">
-                        <h3 style="font-family: var(--f-display); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">お問い合わせ</h3>
-                        <p style="color: var(--c-text-muted); line-height: 1.8;">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="process-step-number primary">01</div>
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">お問い合わせ</h3>
+                        <p class="process-step-description">
                             お問い合わせフォームよりご相談内容をお送りください。
                             ご希望のプラン、予算、目標などをお聞かせください。
                         </p>
@@ -249,11 +251,11 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem;" data-aos="fade-up" data-aos-delay="100">
-                    <div style="width: 60px; height: 60px; background: var(--c-surface); border: 1px solid var(--c-border); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; color: var(--c-accent);">02</div>
-                    <div style="border-left: 1px solid var(--c-border); padding-left: 2rem;">
-                        <h3 style="font-family: var(--f-display); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">ヒアリング・企画提案</h3>
-                        <p style="color: var(--c-text-muted); line-height: 1.8;">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-step-number secondary">02</div>
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">ヒアリング・企画提案</h3>
+                        <p class="process-step-description">
                             1〜2営業日でご連絡いたします。
                             詳細なヒアリングを行い、最適な企画内容をご提案します。
                         </p>
@@ -261,11 +263,11 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem;" data-aos="fade-up" data-aos-delay="200">
-                    <div style="width: 60px; height: 60px; background: var(--c-surface); border: 1px solid var(--c-border); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; color: var(--c-accent);">03</div>
-                    <div style="border-left: 1px solid var(--c-border); padding-left: 2rem;">
-                        <h3 style="font-family: var(--f-display); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">お見積り・契約</h3>
-                        <p style="color: var(--c-text-muted); line-height: 1.8;">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-step-number secondary">03</div>
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">お見積り・契約</h3>
+                        <p class="process-step-description">
                             企画内容に基づいたお見積りをご提示。
                             内容にご納得いただけましたら、正式にご契約となります。
                         </p>
@@ -273,11 +275,11 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 3rem;" data-aos="fade-up" data-aos-delay="300">
-                    <div style="width: 60px; height: 60px; background: var(--c-surface); border: 1px solid var(--c-border); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; color: var(--c-accent);">04</div>
-                    <div style="border-left: 1px solid var(--c-border); padding-left: 2rem;">
-                        <h3 style="font-family: var(--f-display); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">キャンペーン開始</h3>
-                        <p style="color: var(--c-text-muted); line-height: 1.8;">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-step-number secondary">04</div>
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">キャンペーン開始</h3>
+                        <p class="process-step-description">
                             厳選されたアフィリエイターへの配信を開始。
                             リアルタイムで成果を確認いただけます。
                         </p>
@@ -285,11 +287,11 @@
                 </div>
 
                 <!-- Step 5 -->
-                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem;" data-aos="fade-up" data-aos-delay="400">
-                    <div style="width: 60px; height: 60px; background: var(--c-surface); border: 1px solid var(--c-border); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; color: var(--c-accent);">05</div>
-                    <div style="border-left: 1px solid var(--c-border); padding-left: 2rem;">
-                        <h3 style="font-family: var(--f-display); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">レポート・改善</h3>
-                        <p style="color: var(--c-text-muted); line-height: 1.8;">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-step-number secondary">05</div>
+                    <div class="process-step-content">
+                        <h3 class="process-step-title">レポート・改善</h3>
+                        <p class="process-step-description">
                             定期的なレポートと改善提案を実施。
                             継続的な成果向上をサポートします。
                         </p>
@@ -391,24 +393,24 @@
     <!-- CTA Section -->
     <section class="contact">
         <div class="container">
-            <div class="contact-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <div class="contact-content text-center max-w-800 mx-auto">
                 <h2 class="contact-title">
                     成果報酬型広告で<br>
                     <span class="gradient-text">売上を伸ばす</span>
                 </h2>
-                <p class="contact-description" style="margin-bottom: var(--s-gutter);">
+                <p class="contact-description">
                     まずはお気軽にご相談ください。<br>
                     貴社のニーズに合わせた最適なプランをご提案いたします。
                 </p>
 
-                <div style="padding: 3rem; background: var(--c-surface); border: 1px solid var(--c-border); text-align: center;">
+                <div class="cta-box">
                     <a href="contact.html" class="btn btn-primary btn-large">
                         <span>お問い合わせ・無料相談</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
-                    <p style="margin-top: 1.5rem; font-family: var(--f-mono); font-size: 0.8rem; color: var(--c-text-muted);">
+                    <p class="cta-box-note">
                         * お問い合わせから1〜2営業日でご連絡いたします
                     </p>
                 </div>

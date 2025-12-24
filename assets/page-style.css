@@ -385,8 +385,8 @@
     font-weight: var(--font-weight-bold);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive - モバイル（767px以下） */
+@media (max-width: 767px) {
     .page-hero {
         padding: calc(80px + var(--space-2xl)) 0 var(--space-2xl);
     }
