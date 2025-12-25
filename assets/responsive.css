@@ -524,6 +524,10 @@ a[href] {
         padding-top: 100px;
         padding-bottom: 40px;
     }
+
+    .page-hero {
+        padding: 120px 0 60px;
+    }
     
     .container {
         padding: 0 16px;

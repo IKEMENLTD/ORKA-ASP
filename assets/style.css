@@ -292,7 +292,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 120px;
     position: relative;
     overflow: hidden;
 }
@@ -1302,7 +1302,7 @@ section {
    PAGE LAYOUTS (Individual Pages)
 ------------------------------------------------------------------ */
 .page-hero {
-    padding: 180px 0 100px;
+    padding: 160px 0 80px;
     background: var(--c-bg);
     border-bottom: 1px solid var(--c-border);
 }
